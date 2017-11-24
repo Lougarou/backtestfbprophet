@@ -11,7 +11,7 @@ df['ds'] = pd.to_datetime(df['ds'])
 
 
 def predict(month, df, units):
-
+	print("------ Month " + str(month) + " ------")
 	timefrom = '2017-' + str(month) + '-1'
 	timeto = '2017-' + str(month + 1) + '-1'
 	df=df[df['ds'] < timeto] #this the dataframe for our real values, we are taking for the month we are predicting also to compare later on
@@ -36,6 +36,7 @@ def predict(month, df, units):
 
 	prices = df[(df['ds'] > timefrom) & (df['ds'] < timeto)]
 	prices = prices.sort_values('ds')
+
 
 	currentPrice = prices['y'].iloc[0]
 	target = currentPrice + (dfResult['Prediction'].iloc[-1] - dfResult['Prediction'].iloc[0]) #let's say we take a position on this
@@ -86,4 +87,4 @@ for i in range(1,11):
 print(trades)
 print("Total profit: "+str(sum(trades)))
 print("Final account: "+str(account))
-print("% Growth: "+ str(account/2500)/100)
+print("% Growth: "+ str((account-2500)/2500*100))
