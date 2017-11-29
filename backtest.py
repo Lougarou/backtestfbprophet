@@ -67,10 +67,10 @@ def predict(month, df, units):
 		if(target < currentPrice): #short
 			if(row[1].price < target):
 				print ("Short take profit at "+str(row[1].date)+", "+str(row[1].price))
-				return (currentPrice-target)*units
+				return abs(currentPrice-target)*units
 		elif(row[1].price > target): #long
 			print("Long take profit at " + str(row[1].date) + ", " + str(row[1].price))
-			return (currentPrice - target) * units
+			return abs(currentPrice - target) * units
 	loss = abs(target-currentPrice)*units*-1
 	print("Closing position: loss: "+str(loss)+ " at " + str(row[1].date))
 	return loss
@@ -83,7 +83,7 @@ for i in range(1,11):
 	account = account + result
 	if(account < 2000): #A Really bad of money management, put stop losses when taking positions if you want to try in a real
 		print ("Too many losses.")
-		break
+		#break
 print(trades)
 print("Total profit: "+str(sum(trades)))
 print("Final account: "+str(account))

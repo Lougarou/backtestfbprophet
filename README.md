@@ -1,6 +1,6 @@
 Backtesting the prediction of Silver prices in USD for 2017 using Facebook Prophet
 
-Result is 4.9% profit over 11 Months
+Result is 9.22% profit over 11 Months
 
 Please check the blog post below for more information:
 
