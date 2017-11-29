@@ -83,7 +83,7 @@ for i in range(1,11):
 	account = account + result
 	if(account < 2000): #A Really bad of money management, put stop losses when taking positions if you want to try in a real
 		print ("Too many losses.")
-		#break
+		break
 print(trades)
 print("Total profit: "+str(sum(trades)))
 print("Final account: "+str(account))
